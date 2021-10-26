@@ -14,13 +14,10 @@ namespace Charger
         public Form1()
         {
             InitializeComponent();
-
             PortsAvailable();
 
         }
-
-
-
+        
         void PortsAvailable()
         {
             String[] ports = SerialPort.GetPortNames();
@@ -63,7 +60,6 @@ namespace Charger
                                     MessageBoxDefaultButton.Button1,
                                     MessageBoxOptions.DefaultDesktopOnly);
                     }
-
                 }
                 else
                 {
@@ -75,9 +71,6 @@ namespace Charger
                                     MessageBoxDefaultButton.Button1,
                                     MessageBoxOptions.DefaultDesktopOnly);
                 }
-
-
-
             }
         }
 
@@ -98,7 +91,6 @@ namespace Charger
 
         }
 
-
         private void Changedata(object sender, EventArgs e)
         {
             /*
@@ -116,7 +108,6 @@ namespace Charger
                 textBox2.Text = res[6];
                 textBox1.Text = res[5];
             }
-         
 
             label13.Text = res[4];
             label6.Text = res[3]+" A";
@@ -162,8 +153,6 @@ namespace Charger
         private void button3_Click(object sender, EventArgs e)
         {
             
-
-
             if (button1.Enabled == false)
             {
                 
