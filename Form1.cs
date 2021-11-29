@@ -9,26 +9,36 @@ namespace Charger
     {
         String DataIn = "";
         string[] res;
-
+        double a = 0, b = 30, x, y, h = 1;
+        double xAxis;
+        //Excel excel = new Excel(@"C:\Users\vasya\Desktop\test.xlsx", 1);
         uint flagDisableChangeTextBox=0;
         public Form1()
         {
             InitializeComponent();
             PortsAvailable();
 
+            //excel.WriteStrToCell(0, 0, "Hello");
+            //excel.Save();
+
+            this.chart1.Series[0].Points.Clear();
+   
         }
         
+
+
+
         void PortsAvailable()
         {
             String[] ports = SerialPort.GetPortNames();
             comboBox1.Items.Clear();
             comboBox1.Items.AddRange(ports);
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             if (button1.Enabled == true)
             {
                 if (comboBox1.Text!="")
@@ -112,6 +122,11 @@ namespace Charger
             label13.Text = res[4];
             label6.Text = res[3]+" A";
             label5.Text = res[2]+" В";
+            double yAxis = Convert.ToDouble(res[3]);
+            xAxis += 0.2;
+            this.chart1.Series[0].Points.AddXY(xAxis, yAxis);
+          
+
             DataIn = "";
         }
 
