@@ -9,7 +9,7 @@ namespace Charger
     {
         String DataIn = "";
         string[] res;
-        double a = 0, b = 30, x, y, h = 1;
+        
         double xAxis;
         //Excel excel = new Excel(@"C:\Users\vasya\Desktop\test.xlsx", 1);
         uint flagDisableChangeTextBox=0;
@@ -122,8 +122,95 @@ namespace Charger
             label13.Text = res[4];
             label6.Text = res[3]+" A";
             label5.Text = res[2]+" В";
-            double yAxis = Convert.ToDouble(res[3]);
+            
+            double yAxis = Convert.ToDouble(res[3].Replace(".",","));
             xAxis += 0.2;
+            xAxis = Math.Round(xAxis,1);
+            
+            if (yAxis < 115)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 120;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 105)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 110;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 95)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 100;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 85)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 90;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 75)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 80;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 65)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 70;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 55)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 60;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 45)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 50;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+
+
+            if (yAxis < 35)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 40;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+
+            if (yAxis < 25)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 30;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+
+            if (yAxis < 15)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 20;
+                this.chart1.ChartAreas[0].AxisY.Minimum = 0;
+            }
+             
+            if (yAxis < 5)
+            {
+                this.chart1.ChartAreas[0].AxisY.Maximum = 10;
+                this.chart1.ChartAreas[0].AxisY.Minimum = -1;
+            }
+
+
+           
+
+
+            this.chart1.ChartAreas[0].AxisX.Minimum = xAxis - (xAxis * 0.65);
+            this.chart1.ChartAreas[0].AxisX.Maximum = (xAxis * 0.35) + xAxis;
+
+
+
             this.chart1.Series[0].Points.AddXY(xAxis, yAxis);
           
 
@@ -170,7 +257,6 @@ namespace Charger
             
             if (button1.Enabled == false)
             {
-                
                 serialPort1.WriteLine("v=" + textBox1.Text.Replace(",", "."));
                 serialPort1.WriteLine("i=" + textBox2.Text.Replace(",", "."));
             }

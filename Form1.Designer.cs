@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -316,7 +316,7 @@
             this.button4.Enabled = false;
             this.button4.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button4.ForeColor = System.Drawing.Color.Green;
-            this.button4.Location = new System.Drawing.Point(17, 324);
+            this.button4.Location = new System.Drawing.Point(17, 406);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 48);
             this.button4.TabIndex = 15;
@@ -328,7 +328,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(24, 287);
+            this.label11.Location = new System.Drawing.Point(24, 369);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 34);
             this.label11.TabIndex = 16;
@@ -336,20 +336,20 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Ток";
-            this.chart1.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Ток";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(186, 154);
             this.chart1.Name = "chart1";
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Color = System.Drawing.Color.Green;
-            series2.Legend = "Ток";
-            series2.Name = "Ток";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(556, 218);
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Color = System.Drawing.Color.Green;
+            series1.Legend = "Ток";
+            series1.Name = "Ток";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(556, 300);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
             // 
@@ -358,7 +358,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(784, 386);
+            this.ClientSize = new System.Drawing.Size(784, 476);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button4);
