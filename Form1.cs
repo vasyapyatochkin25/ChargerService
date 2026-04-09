@@ -9,7 +9,7 @@ namespace Charger
     {
         String DataIn = "";
         string[] res;
-        
+        const int MAX_POINTS = 500;
         double xAxis;
         //Excel excel = new Excel(@"C:\Users\vasya\Desktop\test.xlsx", 1);
         uint flagDisableChangeTextBox=0;
@@ -99,6 +99,28 @@ namespace Charger
 
             }
 
+        }
+
+        
+
+        void AddPoint(double x, double y)
+        {
+            var series = this.chart1.Series[0];
+
+            // Добавляем новую точку
+            series.Points.AddXY(x, y);
+
+            // Если превышен лимит — удаляем первую (FIFO)
+            if (series.Points.Count > MAX_POINTS)
+            {
+                series.Points.RemoveAt(0);
+            }
+
+            // (опционально) сдвигаем ось X, чтобы был эффект "скольжения"
+            this.chart1.ChartAreas[0].AxisX.Minimum = series.Points[0].XValue;
+            this.chart1.ChartAreas[0].AxisX.Maximum = series.Points[series.Points.Count - 1].XValue;
+
+            this.chart1.Invalidate(); // перерисовка
         }
 
         private void Changedata(object sender, EventArgs e)
@@ -209,9 +231,9 @@ namespace Charger
             this.chart1.ChartAreas[0].AxisX.Minimum = xAxis - (xAxis * 0.65);
             this.chart1.ChartAreas[0].AxisX.Maximum = (xAxis * 0.35) + xAxis;
 
+            AddPoint(xAxis, yAxis);
 
-
-            this.chart1.Series[0].Points.AddXY(xAxis, yAxis);
+            //this.chart1.Series[0].Points.AddXY(xAxis, yAxis);
           
 
             DataIn = "";
