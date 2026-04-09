@@ -26,8 +26,6 @@ namespace Charger
         }
         
 
-
-
         void PortsAvailable()
         {
             String[] ports = SerialPort.GetPortNames();
@@ -43,33 +41,19 @@ namespace Charger
             {
                 if (comboBox1.Text!="")
                 {
-                    if (comboBox2.Text!="")
-                    {
-                        serialPort1.PortName = comboBox1.Text;
-                        serialPort1.BaudRate = Convert.ToInt32(comboBox2.Text);
+                    serialPort1.PortName = comboBox1.Text;
+                    serialPort1.BaudRate = 115200;// Convert.ToInt32(comboBox2.Text);
 
-                        serialPort1.Open();
-                        groupBox1.Enabled = true;
-                        groupBox2.Enabled = true;
+                    serialPort1.Open();
+                    groupBox1.Enabled = true;
+                    groupBox2.Enabled = true;
 
-                        button1.Enabled = false;
-                        button2.Enabled = true;
-                        button3.Enabled = true;
-                        button4.Enabled = true;
+                    button1.Enabled = false;
+                    button2.Enabled = true;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
 
-                        timer1.Enabled = true;
-
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                                    "Выберите скорость",
-                                    "Предупреждение",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information,
-                                    MessageBoxDefaultButton.Button1,
-                                    MessageBoxOptions.DefaultDesktopOnly);
-                    }
+                    timer1.Enabled = true;
                 }
                 else
                 {
@@ -100,8 +84,6 @@ namespace Charger
             }
 
         }
-
-        
 
         void AddPoint(double x, double y)
         {
